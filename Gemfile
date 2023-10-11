@@ -53,3 +53,7 @@ group :development do
   gem 'rails-erd'
 end
 
+
+gem "cors", "~> 1.0"
+
+gem "rack-cors", "~> 2.0"
