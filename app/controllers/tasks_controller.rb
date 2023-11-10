@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     if (@task.length === 0)
       render json: { message: "No tasks to show" }, status: :not_found
     else
-      render json: @task[0]
+      render json: @task
     end
   end
 
@@ -56,7 +56,7 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = @current_user.tasks.where(id: params[:id])
+      @task = @current_user.tasks.where(id: params[:id])[0]
     end
 
     # Only allow a list of trusted parameters through.
