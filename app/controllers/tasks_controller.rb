@@ -32,10 +32,14 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1
   def update
-    if @task.update(task_edit_params)
-      render json: @task
+    if (@task.is_completed == false)
+      if @task.update(task_edit_params)
+        render json: @task
+      else
+        render json: @task.errors, status: :unprocessable_entity
+      end
     else
-      render json: @task.errors, status: :unprocessable_entity
+      render json: { message: "Task has been completed, cannot be modify" }, status: :unprocessable_entity
     end
   end
 
