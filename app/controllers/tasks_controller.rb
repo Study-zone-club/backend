@@ -50,8 +50,7 @@ class TasksController < ApplicationController
       render json: { message: "#{@task.title} has been destroy" }, status: :ok
     else
       render json: { message: "#{@task.title} cannot been destroy" }, status: :unprocessable_entity
-    end
-  end
+    end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
