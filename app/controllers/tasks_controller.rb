@@ -66,4 +66,5 @@ class TasksController < ApplicationController
     def task_edit_params
       params.require(:task).permit(:title, :description, :is_completed)
     end
+  end
 end
