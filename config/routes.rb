@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :subjects
   resources :tasks
   resources :users, except: [:create]
   post '/signup', to: 'users#create'

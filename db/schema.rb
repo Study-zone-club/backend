@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_10_164822) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_11_221732) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "title"
+    t.string "area"
+    t.string "professor"
+    t.integer "lapse"
+    t.float "notes", default: [], array: true
+    t.float "power", default: [], array: true
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subjects_on_user_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
@@ -33,5 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_10_164822) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "subjects", "users"
   add_foreign_key "tasks", "users"
 end
