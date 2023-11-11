@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_11_221732) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_11_224054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "days_of_week", null: false, array: true
+    t.time "from"
+    t.time "to"
+    t.bigint "subject_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_schedules_on_subject_id"
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
 
   create_table "subjects", force: :cascade do |t|
     t.string "title"
@@ -46,6 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_11_221732) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "schedules", "subjects"
+  add_foreign_key "schedules", "users"
   add_foreign_key "subjects", "users"
   add_foreign_key "tasks", "users"
 end
