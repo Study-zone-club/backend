@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :subjects
   has_many :schedules
   has_many :notes
+  has_many :activities
 
   validates :email, presence: true, uniqueness: true
   validates :password,
