@@ -20,7 +20,7 @@ class NotesController < ApplicationController
 
   # POST /notes
   def create
-    @note = note.new(note_params)
+    @note = Note.new(note_params)
     @note.user_id = @current_user.id
 
     if @note.save
