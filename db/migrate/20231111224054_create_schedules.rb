@@ -1,7 +1,7 @@
 class CreateSchedules < ActiveRecord::Migration[7.0]
   def change
     create_table :schedules do |t|
-      t.string :days_of_week, array: true, null: false
+      t.string :days_of_week
       t.time :from
       t.time :to
       t.references :subject, null: false, foreign_key: true
