@@ -45,7 +45,7 @@ class SchedulesController < ApplicationController
 
   # DELETE /schedules/1
   def destroy
-    @schedule.destroy
+    Schedule.find(params[:id]).destroy
   end
 
   private

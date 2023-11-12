@@ -45,7 +45,7 @@ class SubjectsController < ApplicationController
 
   # DELETE /subjects/1
   def destroy
-    @subject.destroy
+    Subject.find(params[:id]).destroy
   end
 
   private
