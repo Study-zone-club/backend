@@ -4,6 +4,6 @@ class SubjectSerializer < ActiveModel::Serializer
   has_many :activities
 
   def promedy
-    object.activities == nil ? 0.0 : object.activities.sum(:calification) / object.activities.length
+    object.activities.length == 0 ? 0.0 : object.activities.sum(:calification) / object.activities.length
   end
 end
