@@ -45,7 +45,7 @@ class NotesController < ApplicationController
 
   # DELETE /notes/1
   def destroy
-    @note.destroy
+    Note.find(params[:id]).destroy
   end
 
   private
