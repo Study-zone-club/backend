@@ -50,12 +50,12 @@ class SubjectsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_subject
-      @subject = @current_user.subjects.where(id: params[:id])
-    end
+  def set_subject
+    @subject = @current_user.subjects.where(id: params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def subject_params
-      params.require(:subject).permit(:title, :area, :professor, :lapse, :notes, :power)
-    end
+  # Only allow a list of trusted parameters through.
+  def subject_params
+    params.require(:subject).permit(:title, :area, :professor, :lapse, :notes, :power)
+  end
 end

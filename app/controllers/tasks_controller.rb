@@ -51,20 +51,20 @@ class TasksController < ApplicationController
     else
       render json: { message: "#{@task.title} cannot been destroy" }, status: :unprocessable_entity
     end 
+  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = @current_user.tasks.where(id: params[:id])[0]
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = @current_user.tasks.where(id: params[:id])[0]
+  end
 
-    # Only allow a list of trusted parameters through.
-    def task_params
-      params.require(:task).permit(:title, :description)
-    end
+  # Only allow a list of trusted parameters through.
+  def task_params
+    params.require(:task).permit(:title, :description)
+  end
 
-    def task_edit_params
-      params.require(:task).permit(:title, :description, :is_completed)
-    end
+  def task_edit_params
+    params.require(:task).permit(:title, :description, :is_completed)
   end
 end
