@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post '/login', to: 'authentication#login'
+  post '/signup', to: 'application#signup'
   get '/*a', to: 'application#not_found'
 
   resources :activities
@@ -7,5 +8,5 @@ Rails.application.routes.draw do
   resources :schedules
   resources :subjects
   resources :tasks
-  resources :users
+  resources :users, except: [:create]
 end
