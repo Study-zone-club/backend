@@ -7,6 +7,6 @@ class ScheduleSerializer < ActiveModel::Serializer
   end
 
   def to_parser
-    object.tostrftime("%H:%M")
+    object.to.strftime("%H:%M")
   end
 end
