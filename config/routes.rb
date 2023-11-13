@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   post '/login', to: 'authentication#login'
-  post '/signup', to: 'application#signup'
+  post '/signup', to: 'users#signup'
   get '/*a', to: 'application#not_found'
 
   resources :activities
