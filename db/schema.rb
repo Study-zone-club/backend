@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_200907) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.string "days_of_week", null: false, array: true
+    t.string "days_of_week"
     t.time "from"
     t.time "to"
     t.bigint "subject_id", null: false
